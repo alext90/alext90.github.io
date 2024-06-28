@@ -17,7 +17,7 @@ The last days I was working on a fun side project: a toolbox with a collection o
 In this post I wanted to look a bit closer at the Cuckoo Search algorithm.  
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/cuckoo.jpg' | relative_url }}" alt="Cuckoo image" title="Cuckoo" width="200"/>
+    <img src="{{ '/assets/img/cuckoo.jpg' | relative_url }}" alt="Cuckoo image" title="Cuckoo" width="400"/>
     <p>Source: wikimedia</p>
 </div>
 
@@ -26,7 +26,7 @@ In this post I wanted to look a bit closer at the Cuckoo Search algorithm.
 The Cuckoo Search algorithm is a metaheuristic search algorithm inspired by the brood parasitism of some cuckoo species. In these species, cuckoos lay their eggs in the nests of other host birds. If the host bird discovers the alien eggs, it may either throw them away or abandon its nest. The algorithm mimics this behavior to solve optimization problems. 
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/flow_chart_cuckoo.png' | relative_url }}" alt="cuckoo flow chart" title="Cuckoo Search" width="200"/>
+    <img src="{{ '/assets/img/flow_chart_cuckoo.png' | relative_url }}" alt="cuckoo flow chart" title="Cuckoo Search" width="400"/>
     <p><a href="https://www.mdpi.com/2071-1050/11/22/6287">Source</a></p>
 </div>
 
@@ -50,9 +50,9 @@ f(x, y) = (a - x)^2 + b(y - x^2)^2
 
 Where typically a = 1 and b = 100. This function has a global minimum at (x, y) = (a, a^2), where f(x, y) = 0.  
 We will use the cuckoo search and the Nat[ure] Optim[ization] Toolbox.  
-I recommend setting up a virtual environment (``` make setup```) first. Afterwards we install the requirements (```make install```). If you want to run an example or the tests you can use ```make run``` and ```make test``` respectively.  
+I recommend setting up a virtual environment (```make setup```) first. Afterwards we install the requirements (```make install```). If you want to run an example or the tests you can use ```make run``` and ```make test``` respectively.  
 
-We first import the Population class, the CuckooSearch class and the Rosenbrock example function.  
+We first import the *Population* class, the *CuckooSearch* class and the Rosenbrock example function.  
 As for most metaheuristic algorithms we have to define the number of individuals in the population, how many attributes an individual has and the lower and upper bounds for the algorithm. Furthermore, we want to set a error tolerance for the optimization algorithm to stop and an upper limit of generations for optimization.
 
 
@@ -115,13 +115,13 @@ result.plot_genotypic_diversity()
 In the genotypic diversity plot we can see how the traits of the individuals converge to one, which is the optimal solution for our spheric function.  
 
 <div style="text-align: center">
-  <img src="{{ '/assets/img/genotypic_diversity_cs.png' | relative_url }}" alt="genotypic_diversity" title="Genotypic Diversity" width="200"/>  
+  <img src="{{ '/assets/img/genotypic_diversity_cs.png' | relative_url }}" alt="genotypic_diversity" title="Genotypic Diversity" width="500"/>  
   <p>Genotypic diversity</p>
 </div>
 
 In the plot for the phenotypic diversity we see how the fitness of the value of the objective function decreases and lowers towards zero.  
 
 <div style="text-align: center">
-  <img src="{{ '/assets/img/phenotypic_diversity_cs.png' | relative_url }}" alt="phenotypic_diversity" title="Phenotypic Diversity" width="200"/>  
+  <img src="{{ '/assets/img/phenotypic_diversity_cs.png' | relative_url }}" alt="phenotypic_diversity" title="Phenotypic Diversity" width="500"/>  
   <p>Phenotypic diversity</p>
 </div>
