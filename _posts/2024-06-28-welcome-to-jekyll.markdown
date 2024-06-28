@@ -26,7 +26,7 @@ In this post I wanted to look a bit closer at the Cuckoo Search algorithm.
 The Cuckoo Search algorithm is a metaheuristic search algorithm inspired by the brood parasitism of some cuckoo species. In these species, cuckoos lay their eggs in the nests of other host birds. If the host bird discovers the alien eggs, it may either throw them away or abandon its nest. The algorithm mimics this behavior to solve optimization problems. 
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/flow_chart_cuckoo.png | relative_url }}" alt="cuckoo flow chart" title="Cuckoo Search" width="200"/>
+    <img src="{{ '/assets/img/flow_chart_cuckoo.png' | relative_url }}" alt="cuckoo flow chart" title="Cuckoo Search" width="200"/>
     <p><a href="https://www.mdpi.com/2071-1050/11/22/6287">Source</a></p>
 </div>
 
