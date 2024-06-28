@@ -5,7 +5,7 @@
 layout: home
 ---
 
-![profile picture](_posts/img/cropped-me.jpg)
+![profile picture](assets/img/cropped-me.jpg)
 
 Hi I am Alex and I am a Senior Data and Research Scientist at hema.to where I focus on applications of machine learning for leukemia diagnosis.  
 
