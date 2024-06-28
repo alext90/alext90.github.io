@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "First Post (soon)"
+title:  "Cuckoo Search and NatOptimToolbox"
 date:   2024-06-28 15:33:15 +0200
 categories: jekyll update
 ---
@@ -16,27 +16,33 @@ The last days I was working on a fun side project: a toolbox with a collection o
 
 In this post I wanted to look a bit closer at the Cuckoo Search algorithm.  
 
-<img src="../assets/img/cuckoo.jpg" alt="Cuckoo image" title="Cuckoo" width="200"/>  
+<div style="text-align: center">
+    <img src="../assets/img/cuckoo.jpg" alt="Cuckoo image" title="Cuckoo" width="200"/>
+    <p>Source: wikimedia</p>
+</div>
 
-Source: wikimedia  
+---
 
 The Cuckoo Search algorithm is a metaheuristic search algorithm inspired by the brood parasitism of some cuckoo species. In these species, cuckoos lay their eggs in the nests of other host birds. If the host bird discovers the alien eggs, it may either throw them away or abandon its nest. The algorithm mimics this behavior to solve optimization problems. 
 
-<img src="../assets/img/flow_chart_cuckoo.png" alt="cuckoo flow chart" title="Cuckoo Search" width="200"/>
+<div style="text-align: center">
+    <img src="../assets/img/flow_chart_cuckoo.png" alt="cuckoo flow chart" title="Cuckoo Search" width="200"/>
+    <p><a href="https://www.mdpi.com/2071-1050/11/22/6287">Source</a></p>
+</div>
 
-[Source](https://www.mdpi.com/2071-1050/11/22/6287)
+1. **Initialization**: Generate an initial population of (n) host nests (solutions).
 
-1. Initialization: Generate an initial population of (n) host nests (solutions).
+2. **Get a Cuckoo**: Randomly choose a cuckoo (solution) and generate a new solution using a Lévy flight process. This process is used because it allows the algorithm to perform local and global searches, simulating the unpredictable ways cuckoos lay eggs in various locations.
 
-2. Get a Cuckoo: Randomly choose a cuckoo (solution) and generate a new solution using a Lévy flight process. This process is used because it allows the algorithm to perform local and global searches, simulating the unpredictable ways cuckoos lay eggs in various locations.
+3. **Evaluate and Choose Nests**: Evaluate the fitness of the new solution. If the new fitness is better than the worst solution in the nest, replace the worst solution with the new solution.
 
-3. Evaluate and Choose Nests: Evaluate the fitness of the new solution. If the new fitness is better than the worst solution in the nest, replace the worst solution with the new solution.
+4. **Fraction (p_discovery)**: A fraction (p_discovery) of the worst nests are abandoned, and new ones are built. This introduces new solutions into the population, preventing premature convergence and encouraging exploration of the solution space.
 
-4. Fraction (p_discovery): A fraction (p_discovery) of the worst nests are abandoned, and new ones are built. This introduces new solutions into the population, preventing premature convergence and encouraging exploration of the solution space.
+5. **Repeat**: Repeat steps 2-4 until a termination condition is met (e.g., a maximum number of generations or an error tolerance).
 
-5. Repeat: Repeat steps 2-4 until a termination condition is met (e.g., a maximum number of generations).
+6. **Post-Process**: The best solution found during the iterations is considered as the optimal solution to the problem.
 
-6. Post-Process: The best solution found during the iterations is considered as the optimal solution to the problem.
+---
 
 I want to quickly demonstrate how to find the minimum for the Rosenbrock function, which is defined as:
 
@@ -106,13 +112,14 @@ result.plot_genotypic_diversity()
 
 In the genotypic diversity plot we can see how the traits of the individuals converge to one, which is the optimal solution for our spheric function.  
 
-<img src="../assets/img/genotypic_diversity_cs.png" alt="Cuckoo image" title="Cuckoo" width="200"/>  
-
-Genotypic diversity
-
+<div style="text-align: center">
+  <img src="../assets/img/genotypic_diversity_cs.png" alt="Cuckoo image" title="Cuckoo" width="200"/>  
+  <p>Genotypic diversity</p>
+</div>
 
 In the plot for the phenotypic diversity we see how the fitness of the value of the objective function decreases and lowers towards zero.  
 
-<img src="../assets/img/phenotypic_diversity_cs.png" alt="Cuckoo image" title="Cuckoo" width="200"/>  
-
-Phenotypic diversity
+<div style="text-align: center">
+  <img src="../assets/img/phenotypic_diversity_cs.png" alt="Cuckoo image" title="Cuckoo" width="200"/>  
+  <p>Phenotypic diversity</p>
+</div>
