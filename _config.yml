@@ -6,7 +6,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 domain: alext90.github.io
 url: https://alext90.github.io # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  alext90
-linkedin_username: https://www.linkedin.com/in/alexander-trende
+linkedin_username: www.linkedin.com/in/alexander-trende
 
 # Build settings
 theme: minima
