@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 # Cuckoo Search
 
-The last days I was working on a fun side project: a toolbox with a collection of nature-inspired metaheuristic search algorithms. I published the toolbox [here](https://github.com/alext90/natureOptimToolbox/tree/main). It currently features six search algorithms:
+The last days I was working on a fun side project: a toolbox with a collection of nature-inspired metaheuristic search algorithms. I published the toolbox called NatOptimToolbox [here](https://github.com/alext90/natureOptimToolbox/tree/main). It currently features six search algorithms:
 - Artificial Bee Colony
 - Cuckoo Search
 - Bat Search
@@ -17,7 +17,7 @@ The last days I was working on a fun side project: a toolbox with a collection o
 In this post I wanted to look a bit closer at the Cuckoo Search algorithm.  
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/cuckoo.jpg' | relative_url }}" alt="Cuckoo image" title="Cuckoo" width="400"/>
+    <img src="{{ '/assets/img/cuckoo.jpg' | relative_url }}" alt="Cuckoo image" title="Cuckoo" width="300"/>
     <p>Source: wikimedia</p>
 </div>
 
@@ -26,7 +26,7 @@ In this post I wanted to look a bit closer at the Cuckoo Search algorithm.
 The Cuckoo Search algorithm is a metaheuristic search algorithm inspired by the brood parasitism of some cuckoo species. In these species, cuckoos lay their eggs in the nests of other host birds. If the host bird discovers the alien eggs, it may either throw them away or abandon its nest. The algorithm mimics this behavior to solve optimization problems. 
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/flow_chart_cuckoo.png' | relative_url }}" alt="cuckoo flow chart" title="Cuckoo Search" width="400"/>
+    <img src="{{ '/assets/img/flow_chart_cuckoo.png' | relative_url }}" alt="cuckoo flow chart" title="Cuckoo Search" width="300"/>
     <p><a href="https://www.mdpi.com/2071-1050/11/22/6287">Source</a></p>
 </div>
 
@@ -46,9 +46,11 @@ The Cuckoo Search algorithm is a metaheuristic search algorithm inspired by the 
 
 I want to quickly demonstrate how to find the minimum for the Rosenbrock function, which is defined as:  
 
-f(x, y) = (a - x)^2 + b(y - x^2)^2  
+```python
+np.sum(100 * (x[1:] - x[:-1]**2)**2 + (x[:-1] - 1)**2)
+```
 
-Where typically a = 1 and b = 100. This function has a global minimum at (x, y) = (a, a^2), where f(x, y) = 0.  
+In case of a x having two elements the global minimum of the function will be [1, 1].  
 We will use the cuckoo search and the Nat[ure] Optim[ization] Toolbox.  
 I recommend setting up a virtual environment (```make setup```) first. Afterwards we install the requirements (```make install```). If you want to run an example or the tests you can use ```make run``` and ```make test``` respectively.  
 
