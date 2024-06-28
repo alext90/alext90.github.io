@@ -1,5 +1,5 @@
 # Hi, I am Alex
-Welcome to my personal page! I am John Doe, a senior data scientist with experience in data analysis, machine learning, and statistical modeling in academia and industry. My passion lies in uncovering insights from data and using those insights to drive business decisions.
+Welcome to my personal page! I am Alex, a senior data scientist from Munich, Germany with experience in data analysis, machine learning, and statistical modeling in academia and industry. My passion lies in uncovering insights from data and using those insights to drive business decisions.
 
 ## About Me
 
