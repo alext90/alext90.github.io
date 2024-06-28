@@ -20,6 +20,7 @@ permalink: /resume/
 - Machine Learning, Software Development
 - PyTorch, scikit-learn
 - Data Visualization
+- Git, Docker
 
 ### Publications
 [Google scholar](https://scholar.google.de/citations?user=pSP3xs4AAAAJ&hl=de)
