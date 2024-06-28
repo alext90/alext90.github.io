@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Resume
+permalink: /resume/
 ---
  
 - Ph.D. Computer Science from University of Oldenburg and the German Aerospace Center with a focus on AI and automated driving
