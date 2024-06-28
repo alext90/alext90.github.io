@@ -15,4 +15,8 @@ permalink: /resume/
 - **M.Sc. Physics** from University of Oldenburg with a focus on AI and theoretical Physics
 - **B.Sc. Physics** from the LMU Munich with a focus on computational Physics
 
-### Miscealaenous
+### Skills
+- Python, Matlab, R
+- Machine Learning, Software Development
+- PyTorch, scikit-learn
+- Data Visualization
