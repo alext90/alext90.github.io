@@ -1,12 +1,12 @@
 title: Alexander Trende
 #email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  My personal website
+#description: >- # this means to ignore newlines until "baseurl:"
+#  My personal website
 baseurl: "" # the subpath of your site, e.g. /blog
 domain: alext90.github.io
 url: https://alext90.github.io # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  alext90
-linkedin_username: https://www.linkedin.com/in/alexander-trende/
+linkedin_username: https://www.linkedin.com/in/alexander-trende
 
 # Build settings
 theme: minima
