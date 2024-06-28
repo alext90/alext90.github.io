@@ -44,11 +44,11 @@ The Cuckoo Search algorithm is a metaheuristic search algorithm inspired by the 
 
 ---
 
-I want to quickly demonstrate how to find the minimum for the Rosenbrock function, which is defined as:
+I want to quickly demonstrate how to find the minimum for the Rosenbrock function, which is defined as:  
 
-$$f(x, y) = (a - x)^2 + b(y - x^2)^2$$
+f(x, y) = (a - x)^2 + b(y - x^2)^2  
 
-Where typically $a = 1$ and $b = 100$. This function has a global minimum at $(x, y) = (a, a^2)$, where $f(x, y) = 0$.  
+Where typically a = 1 and b = 100. This function has a global minimum at (x, y) = (a, a^2), where f(x, y) = 0.  
 We will use the cuckoo search and the Nat[ure] Optim[ization] Toolbox.  
 I recommend setting up a virtual environment (``` make setup```) first. Afterwards we install the requirements (```make install```). If you want to run an example or the tests you can use ```make run``` and ```make test``` respectively.  
 
