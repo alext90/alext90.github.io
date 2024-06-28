@@ -4,15 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Welcome to my personal page!  
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I am Alex, a senior data scientist from Munich, Germany with experience in data analysis, machine learning, and statistical modeling in academia and industry.    
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I hold a Master's degree in Physics and a Ph.D. in Computer Science and have applied my Data Science skills in various use cases. My core competencies include:  
 
-
-[jekyll-organization]: https://github.com/jekyll
+- Machine Learning: Developing and deploying machine learning models for predictive analytics.
+- Statistical Analysis: Expertise in statistical methods and their application in real-world scenarios.
+- Data Visualization: Creating insightful and interactive visualizations to communicate data findings.  
+- I am constantly learning and staying up-to-date with the latest advancements in data science.
