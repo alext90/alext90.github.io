@@ -9,9 +9,10 @@ layout: home
 
 ---
 
-Hi, I’m Alex, a Senior Data and Research Scientist at hema.to, specializing in machine learning applications for leukemia diagnosis.  
+Hi I am Alex and I am a Senior Data and Research Scientist at hema.to where I focus on applications of machine learning for leukemia diagnosis.  
 
-I frequently update this page with my latest resume, publications, and blog posts. My blog covers a variety of topics, primarily focused on machine learning applications, trustworthy AI, and occasionally, computational neuroscience. 
+I try to update this page frequently by updating my resume and publications list and blog posts.  
+I write blog posts about various different topics, which are mainly related to applications of machine learning, trustworthy AI and sometimes computational neuroscience.  
 
 ---
 
