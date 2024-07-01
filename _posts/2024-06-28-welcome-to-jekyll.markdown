@@ -50,8 +50,7 @@ I want to quickly demonstrate how to find the minimum for the Rosenbrock functio
 np.sum(100 * (x[1:] - x[:-1]**2)**2 + (x[:-1] - 1)**2)
 ```
 
-In case of a x having two elements the global minimum of the function will be [1, 1].  
-We will use the cuckoo search and the Nat[ure] Optim[ization] Toolbox.  
+In case of a x having two elements the global minimum of the function will be [1, 1]. We will use the cuckoo search and the Nat[ure] Optim[ization] Toolbox.  
 I recommend setting up a virtual environment (```make setup```) first. Afterwards we install the requirements (```make install```). If you want to run an example or the tests you can use ```make run``` and ```make test``` respectively.  
 
 We first import the *Population* class, the *CuckooSearch* class and the Rosenbrock example function.  
