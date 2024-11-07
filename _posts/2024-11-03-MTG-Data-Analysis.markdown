@@ -14,7 +14,7 @@ First step is to look at the color identities of the cards. As expected they are
 For simplicity I decided to assign the first color of multi-color cards as the primary identity. This means a card which has the [Green, Red] color identity will be counted as Green.
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/color_identity_pie_chart.png' | relative_url }}" alt="Color Identity" title="Color Identity Distribution" width="300"/>
+    <img src="{{ '/assets/img/color_identity_pie_chart.png' | relative_url }}" alt="Color Identity" title="Color Identity Distribution" width="500"/>
 </div>
 
 ## Power & Toughness
@@ -22,14 +22,14 @@ I looked at all the numeric power and toughness values of cards. I excluded "X/X
 The higher number of 0/X cards than X/0 cards are mainly "Defender" cards that can't attack anyways.
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/power_toughness_distribution.png' | relative_url }}" alt="Power Toughness Distribution" title="Power Toughness Distribution" width="300"/>
+    <img src="{{ '/assets/img/power_toughness_distribution.png' | relative_url }}" alt="Power Toughness Distribution" title="Power Toughness Distribution" width="500"/>
 </div>
 
 ## Rarity
 Rarity is an important property of a card in MTG. We have four rarities: Common (black), Uncommon (silver), Rare (gold) and Mythic (orange). 
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/rarity_distribution.png' | relative_url }}" alt="Rarity Distribution" title="Rarity Distribution" width="300"/>
+    <img src="{{ '/assets/img/rarity_distribution.png' | relative_url }}" alt="Rarity Distribution" title="Rarity Distribution" width="500"/>
 </div>
 
 
@@ -39,7 +39,7 @@ Certain powers reappear on multiple cards and have keywords to not always includ
 "Haste" for example allows a creature to attack in the same turn as it was played. A creature without haste has to "wait" one turn to attack.  
 The following table shows the percentages of some of the most important keywords of MTG cards.
 
-| Keyword    | Percentage |
+| Keyword | Percentage |
 | -------- | ------- |
 | Lifelink | 2.08% |
 | Trample | 5.12% |
@@ -72,9 +72,9 @@ The maximum card prices was around 6000$ in this dataset.
 | | Mythic | 72.39$
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/price_distribution.png' | relative_url }}" alt="Price Distribution" title="Price Distribution" width="600"/>
+    <img src="{{ '/assets/img/price_distribution.png' | relative_url }}" alt="Price Distribution" title="Price Distribution" width="800"/>
 </div>
 
 <div style="text-align: center">
-    <img src="{{ '/assets/img/price_distribution_by_rarity.png' | relative_url }}" alt="Price Distribution by Rarity" title="Price Distribution by Rarity" width="300"/>
+    <img src="{{ '/assets/img/price_distribution_by_rarity.png' | relative_url }}" alt="Price Distribution by Rarity" title="Price Distribution by Rarity" width="500"/>
 </div>
