@@ -1,7 +1,0 @@
----
-layout: post
-title:  "Fine-Tuning GPT2 to create MTG cards"
-date:   2024-11-03 11:35:15 +0200
-categories: jekyll update
----
-# Overview
