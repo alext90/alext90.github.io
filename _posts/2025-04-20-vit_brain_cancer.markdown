@@ -30,9 +30,7 @@ Vision Transformers have shown very good performance on image classification ben
 
 ### Loading and Preparing the Data
 
-To train a Vision Transformer effectively on brain MRI images, we first need to structure our dataset properly and prepare it for model consumption. In this project, we used PyTorch Lightning’s modular approach to streamline data handling and training logic.
-
-Our dataset consists of MRI images labeled by brain tumor types (or healthy), and we start by organizing the data into three sets: **training**, **validation**, and **test**. This allows the model to learn, tune its parameters, and finally be evaluated on unseen data.
+Our dataset consists of MRI images labeled by brain tumor types, and we start by organizing the data into three sets: **training**, **validation**, and **test**. This allows the model to learn, tune its parameters, and finally be evaluated on unseen data.
 
 1. **Image Transformations**:  
    We apply a series of transformations including resizing, normalization, and data augmentation (like random flips and rotations) using `torchvision.transforms`. These ensure that the model is robust to slight variations in input images.
@@ -108,11 +106,9 @@ class BCC_Dataloader:
 
 ```
 
-PyTorch Lightning encourages clean separation of concerns, so in the next step, we’ll integrate this data into a `LightningDataModule` to keep our training loop lean and focused.
-
 ### Training and Evaluating the Vision Transformer
 
-Once the data is prepared and loaded, the next step is to fine-tune a Vision Transformer (ViT) on our MRI dataset. We use a pretrained ViT model as our base and adapt it to our classification task. Fine-tuning allows us to benefit from rich, general-purpose visual features learned on large datasets (like ImageNet), while adapting the model to the specific patterns found in brain MRI images.
+Once the data is prepared and loaded, the next step is to fine-tune a Vision Transformer (ViT) on our MRI dataset. I use a pretrained ViT model as base and adapt it to the classification task. Fine-tuning allows us to benefit from rich, general-purpose visual features learned on large datasets (like ImageNet), while adapting the model to the specific patterns found in brain MRI images.
 
 #### Model Definition with PyTorch Lightning
 
