@@ -20,6 +20,7 @@ permalink: /resume/
 - Python, Matlab, R
 - Machine Learning, Software Development
 - PyTorch, scikit-learn
+- SQL, PostgreSQL, DBT, Dagster
 - Data Visualization
 - Git, Docker
 
