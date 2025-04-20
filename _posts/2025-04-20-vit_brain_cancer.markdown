@@ -28,12 +28,6 @@ The [Vision Transformer](https://arxiv.org/pdf/2010.11929) (ViT) is a deep learn
 
 Vision Transformers have shown very good performance on image classification benchmarks, especially when fine-tuned on domain-specific tasks, where spatial context and global understanding are critical.
 
-### Implementation
-
-Great! Since you're using PyTorch Lightning, let’s extend the **data loading and preparation** step in a clear, blog-appropriate style that fits your post’s narrative. Here's how you could present that section:
-
----
-
 ### Loading and Preparing the Data
 
 To train a Vision Transformer effectively on brain MRI images, we first need to structure our dataset properly and prepare it for model consumption. In this project, we used PyTorch Lightning’s modular approach to streamline data handling and training logic.
@@ -116,19 +110,9 @@ class BCC_Dataloader:
 
 PyTorch Lightning encourages clean separation of concerns, so in the next step, we’ll integrate this data into a `LightningDataModule` to keep our training loop lean and focused.
 
----
-
-Perfect! Here's how you can write up the **training and evaluation** step in your blog post, continuing the PyTorch Lightning flow with a clean, professional style:
-
----
-
 ### Training and Evaluating the Vision Transformer
 
 Once the data is prepared and loaded, the next step is to fine-tune a Vision Transformer (ViT) on our MRI dataset. We use a pretrained ViT model as our base and adapt it to our classification task. Fine-tuning allows us to benefit from rich, general-purpose visual features learned on large datasets (like ImageNet), while adapting the model to the specific patterns found in brain MRI images.
-
-Thanks to **PyTorch Lightning**, our training loop is clean, reproducible, and scalable across CPUs, GPUs, or even TPUs.
-
----
 
 #### Model Definition with PyTorch Lightning
 
