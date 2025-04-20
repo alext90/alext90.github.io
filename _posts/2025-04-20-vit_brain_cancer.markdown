@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MRI Brain Cancer Classification with fine-tuned Vision Transformer"
-date:   205-04-20 15:33:15 +0200
+date:   2025-04-20 15:33:15 +0200
 categories: jekyll update
 ---
 # MRI Brain Cancer Classification with fine-tuned Vision Transformer
