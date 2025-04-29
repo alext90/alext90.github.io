@@ -23,6 +23,9 @@ The app uses a custom PyTorch model (`BCC_Model`) to classify the uploaded image
 ### 3. Dynamic Frontend
 The frontend dynamically updates the page to show the uploaded image and prediction result without reloading the page.
 
+### 4. Case view
+Display an overview over all uploaded cases and prediction.
+
 ## Project Structure
 
 ```
@@ -34,7 +37,8 @@ dl_web_app/
 ├── model/
 │   └── bcc_model.pth       # Pre-trained PyTorch model
 ├── templates/
-│   └── index.html          # HTML template for the web interface
+│   └── index.html          # HTML template for the index and upload interface
+│   └── cases.html          # HTML template for the case interface
 ├── static/
 │   └── style.css           # CSS for styling the web interface
 ├── requirements.txt            # Python dependencies
@@ -63,19 +67,6 @@ I would recommend to just use Docker to run the app:
 
 ## Code Highlights
 
-### Loading the Model
-The PyTorch model is loaded in 
-
-main.py
-```python
-from torchvision import models
-from utils.model import BCC_Model
-
-model = BCC_Model(num_classes=3)
-model.load_state_dict(torch.load("model/bcc_model.pth"))
-model.eval()
-```
-
 ### Handling File Uploads
 The `/upload/` endpoint processes the uploaded image:
 ```python
@@ -92,9 +83,3 @@ async def upload_image(file: UploadFile):
     predicted_class_name = CLASS_MAP.get(predicted_class_idx, "Unknown")
     return {"predicted_class_name": predicted_class_name}
 ```
-
-## Conclusion
-
-This project demonstrates how to integrate a PyTorch model into a FastAPI web application. It provides a simple yet powerful interface for classifying MRI brain scans. With additional improvements, this app can serve as a foundation for more advanced machine learning web applications.
-
-Feel free to clone the repository and try it out yourself. Happy coding!
