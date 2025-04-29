@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Simple FastAPI App for MRI Brain Cancer Classification with Torch Models"
+title:  "Part 2: Simple FastAPI App for MRI Brain Cancer Classification with Torch Models"
 date:   2025-04-20 15:33:15 +0200
 categories: jekyll update
 ---
@@ -23,7 +23,10 @@ The app uses a custom PyTorch model (`BCC_Model`) to classify the uploaded image
 ### 3. Dynamic Frontend
 The frontend dynamically updates the page to show the uploaded image and prediction result without reloading the page.
 
-### 4. Case view
+### 4. Database
+Some metadata and the prediction are automaticallz ingested into PostgreSQL DB.
+
+### 5. Case view
 Display an overview over all uploaded cases and prediction.
 
 ## Project Structure
@@ -46,24 +49,6 @@ dl_web_app/
 ├── Dockerfile              # Docker configuration
 ├── README.md               # Project documentation
 ```
-
-## Setting Up the Project
-I would recommend to just use Docker to run the app:
-
-1. Build the Docker image:
-   ```bash
-   docker build -t mri-classification-app .
-   ```
-
-2. Run the Docker container:
-   ```bash
-   docker run -d -p 8000:8000 --name mri-classification-container mri-classification-app
-   ```
-
-3. Access the app at:
-   ```
-   http://127.0.0.1:8000
-   ```
 
 ## Code Highlights
 

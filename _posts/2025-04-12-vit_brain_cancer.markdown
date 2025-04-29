@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "MRI Brain Cancer Classification with fine-tuned Vision Transformer"
+title:  "Part 1: MRI Brain Cancer Classification with fine-tuned Vision Transformer"
 date:   2025-04-12 15:33:15 +0200
 categories: jekyll update
 ---
 # MRI Brain Cancer Classification with fine-tuned Vision Transformer
 
 Medical imaging plays a pivotal role in the early detection and diagnosis of brain tumors. Among the many types of medical images, Magnetic Resonance Imaging (MRI) offers detailed structural views of the brain.   
-In this blog post, I describe how to use Vision Transformers (ViTs) to classify brain tumors from MRI images.
+In this blog post, I describe how to use Vision Transformers (ViTs) to classify brain tumors from MRI images. I will also compare the performance to a vanilla CNN and MobileNet V2.  
 I use the the following [dataset](https://www.kaggle.com/datasets/orvile/brain-cancer-mri-dataset/data) from Kaggle. The dataset includes a total of 6056 images, uniformly resized to 512x512 pixels.
 
 The repository can be found [here](https://github.com/alext90/brain_cancer_kaggle_vit)
@@ -106,13 +106,48 @@ class BCC_Dataloader:
 
 ```
 
+### Simple CNN as Baseline
+
+Before fine-tuning the Vision Transformer mentioned above I wanted to train a simple 2D CNN as a baseline. Nothing special here, so here just architecture and forward pass. Loss and optimizer is the same as in the ViT later:
+
+```python
+class SimpleCNN(pl.LightningModule):
+    def __init__(self, num_classes, lr=1e-4):
+        super(SimpleCNN, self).__init__()
+        self.lr = lr
+
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1, padding=1)
+        self.conv3 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, stride=1, padding=1)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.fc1 = nn.Linear(128 * 28 * 28, 256)
+        self.fc2 = nn.Linear(256, num_classes)
+
+        self.criterion = nn.CrossEntropyLoss()
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = self.pool(x)
+        x = F.relu(self.conv2(x))
+        x = self.pool(x)
+        x = F.relu(self.conv3(x))
+        x = self.pool(x)
+        x = torch.flatten(x, start_dim=1)
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+        ...
+```
+
+
 ### Training and Evaluating the Vision Transformer
 
 Once the data is prepared and loaded, the next step is to fine-tune a Vision Transformer (ViT) on our MRI dataset. I use a pretrained ViT model as base and adapt it to the classification task. Fine-tuning allows us to benefit from rich, general-purpose visual features learned on large datasets (like ImageNet), while adapting the model to the specific patterns found in brain MRI images.
 
 #### Model Definition with PyTorch Lightning
 
-We define a `LightningModule` that wraps a Vision Transformer backbone, adds a classification head for the 3 classes, and handles training, validation, and testing.
+We define a `LightningModule` that wraps a Vision Transformer backbone, adds a classification head for the 3 classes, and handles training, validation, and testing. The MobileNet V2 version looks pretty similar. Just the the classification head change is slightly different.
 
 ```python
 import pytorch_lightning as pl
@@ -226,20 +261,79 @@ if __name__ == "__main__":
         callbacks=[early_stopping],
     )
     trainer.fit(model, train_loader, val_loader)
-    trainer.test(model, test_loader)
 
+```
+
+For evaluation I will use scikit-learn to calculate confusion matrix, accuracy and f1 score:
+
+```python
+def evaluate_model(model, test_loader):
+    all_preds = []
+    all_labels = []
+
+    model.eval()
+
+    with torch.no_grad():
+        for batch in test_loader:
+            x, y = batch
+            y_hat = model(x)
+            preds = torch.argmax(y_hat, dim=1)
+
+            all_preds.append(preds.cpu())
+            all_labels.append(y.cpu())
+
+    all_preds = torch.cat(all_preds)
+    all_labels = torch.cat(all_labels)
+
+    f1 = f1_score(all_labels, all_preds, average="weighted")
+    acc = accuracy_score(all_labels, all_preds)
+    cm = confusion_matrix(all_labels, all_preds)
+    print(f"Multilabel F1 Score: {f1}")
+    print(f"Accuracy: {acc}")
+    print("Confusion Matrix:")
+    print(cm)
 ```
 
 ---
 
 #### Final Evaluation
 
-When running the training for 10 epochs we get the following results on the test set:  
+When running the training for 10 epochs we get the following results on the test set. ViT gives us a small improvement of :  
 
 ```
-Test metric        
-test_acc            0.96
-test_loss           0.22
+CNN:
+-------
+acc                0.866
+weighted_f1        0.864
+
+Confusion Matrix:
+[183   8   3]
+[ 28 150  25]
+[  8   9 192]
+
+
+MobileNet V2:
+-------
+acc               0.857
+weighted_f1       0.858
+
+Confusion Matrix:
+[179  13   2]
+[ 17 158  28]
+[ 15  11 183]
+
+
+ViT:
+------        
+acc               0.905
+weighted_f1       0.893
+
+Confusion Matrix:
+[181  10   2]
+[ 15 163  26]
+[ 13   9 185]
+
+
 ```
 
-I also tried other architectures like VGG and MobileNet_v2 and the performance was not super different.
+ViT outperforms both the simple CNN and the fine-tuned MobileNet V2 in this use-case. To be honest it is a very small dataset and seems to be a pretty simple task since the metrics are already pretty good without a lot of fine-tuning.
