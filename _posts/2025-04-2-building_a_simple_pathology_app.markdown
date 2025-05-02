@@ -20,7 +20,9 @@ I will seperate this series into the following parts:
 ## System Design
 The following schema shows an overview over the system design:
 
-[image]
+<div style="text-align: center">
+    <img src="{{ '/assets/img/webapp_diagram.png' | relative_url }}" alt="System-Design" title="System Design" width="500"/>
+</div>
 
 - Frontend (HTML templates in FastAPI)
 - Backend (FastAPI)
@@ -30,5 +32,5 @@ The following schema shows an overview over the system design:
 
 **Optional**
 - Dagster & DBT for data pipeline and modeling
-- MLOps for training, versioning and monitoring model
+- MLOps for training, versioning and monitoring model (MLFlow)
 - Business Analytics (Metabase) 
