@@ -22,7 +22,8 @@ The following schema shows an overview over the system design:
 
 <div style="text-align: center">
     <img src="{{ '/assets/img/webapp_diagram.png' | relative_url }}" alt="System-Design" title="System Design" width="500"/>
-</div>
+</div>  
+
 
 - Frontend (HTML templates in FastAPI)
 - Backend (FastAPI)
