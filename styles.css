@@ -1,6 +1,21 @@
-/* ===== RETRO TECH THEME ===== */
+/* ===== MINIMAL BLACK THEME ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-main: #000000;
+    --bg-panel: #0a0a0a;
+    --bg-elevated: #111111;
+
+    --border-subtle: #1f1f1f;
+    --border-strong: #2a2a2a;
+
+    --text-primary: #e5e5e5;
+    --text-secondary: #b0b0b0;
+    --text-muted: #7a7a7a;
+}
+
+/* ===== RESET ===== */
 
 * {
     margin: 0;
@@ -9,364 +24,268 @@
 }
 
 body {
-    font-family: 'Space Mono', monospace;
-    background: linear-gradient(135deg, #0a0e27 0%, #0d1b3a 100%);
-    color: #00a8e8;
-    line-height: 1.6;
-    position: relative;
-    overflow-x: hidden;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.65;
     min-height: 100vh;
 }
 
-/* Scanlines effect */
+/* ===== OPTIONAL VERY SUBTLE SCANLINES ===== */
+
 .scanlines {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
+        to bottom,
+        rgba(255,255,255,0.015),
+        rgba(255,255,255,0.015) 1px,
         transparent 1px,
-        transparent 2px
+        transparent 4px
     );
     pointer-events: none;
-    z-index: 999;
+    opacity: 0.15;
 }
 
 /* ===== HEADER ===== */
+
 .header {
-    background: linear-gradient(90deg, #0f3a7d 0%, #00a8e8 100%);
-    padding: 20px;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 28px 20px;
     text-align: center;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 168, 232, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .console-header {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
 
 .header-bars {
-    display: flex;
-    gap: 8px;
-}
-
-.bar {
-    width: 4px;
-    height: 20px;
-    background: #FFBE1E;
-    box-shadow: 0 0 8px rgba(0, 168, 232, 0.6);
-    animation: pulse 0.8s infinite;
-}
-
-.bar:nth-child(1) { animation-delay: 0s; }
-.bar:nth-child(2) { animation-delay: 0.2s; }
-.bar:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes pulse {
-    0%, 100% { transform: scaleY(0.6); }
-    50% { transform: scaleY(1); }
+    display: none;
 }
 
 .terminal-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #FFBE1E;
-    text-shadow: 
-        2px 2px 0 rgba(0, 0, 0, 0.3),
-        0 0 10px rgba(255, 255, 255, 0.3);
-    letter-spacing: 2px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
 }
 
 /* ===== NAVIGATION ===== */
+
 .nav-console {
-    background: #0f1419;
-    border-top: 3px solid #00a8e8;
-    border-bottom: 3px solid #00a8e8;
-    padding: 15px 20px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 14px 20px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 32px;
     flex-wrap: wrap;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.nav-item {
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: #00a8e8;
 }
 
 .nav-item a {
-    color: #00a8e8;
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
+    font-size: 14px;
+    transition: color 0.15s ease;
 }
 
 .nav-item a:hover {
-    color: #00a8e8;
-    text-shadow: 0 0 10px #00a8e8;
+    color: var(--text-primary);
 }
 
 .bracket {
-    color: #00a8e8;
-    margin: 0 8px;
+    display: none;
 }
 
 /* ===== MAIN CONTENT ===== */
+
 .main-content {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 860px;
+    margin: 48px auto;
     padding: 20px;
 }
 
 .section {
-    margin-bottom: 30px;
-    animation: fadeIn 0.6s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin-bottom: 36px;
 }
 
 /* ===== CONSOLE BOX ===== */
+
 .console-box {
-    background: #0a0e27;
-    border: 2px solid #00a8e8;
-    box-shadow: 
-        0 0 20px rgba(0, 168, 232, 0.4),
-        inset 0 0 10px rgba(0, 168, 232, 0.1);
-    padding: 0;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .console-title {
-    background: linear-gradient(90deg, #00a8e8 0%, #0f3a7d 100%);
-    color: #0a0e27;
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 12px;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #00a8e8;
+    background: var(--bg-elevated);
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .console-text {
-    padding: 20px;
-    color: #00a8e8;
-    font-size: 14px;
-    line-height: 1.8;
-    min-height: 100px;
+    padding: 22px;
+    font-size: 15px;
+    color: var(--text-primary);
 }
 
 .console-text p {
-    margin: 8px 0;
+    margin: 12px 0;
 }
 
 .typed-text {
-    font-size: 16px;
-    font-weight: bold;
-    color: #FFBE1E;;
-    text-shadow: 0 0 10px rgba(0, 168, 232, 0.6);
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .subtext {
-    color: #00a8e8;
-    font-size: 13px;
-    margin-top: 10px;
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 /* ===== PROJECTS ===== */
+
 .project-item {
-    margin: 15px 0;
-    padding: 12px;
-    background: rgba(0, 255, 65, 0.05);
-    border-left: 3px solid #00a8e8;
-    display: block;
+    padding: 14px 16px;
+    border-left: 2px solid var(--border-strong);
+    background: var(--bg-elevated);
+    margin: 14px 0;
 }
 
 .project-name {
-    display: block;
-    color: #00a8e8;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .project-desc {
-    display: block;
-    color: #b0b0b0;
-    font-size: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
 }
 
-/* ===== CONTACT LINKS ===== */
+/* ===== CONTACT ===== */
+
 .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .contact-link {
-    color: #00a8e8;
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-    padding: 8px 12px;
-    border: 1px solid transparent;
+    padding: 10px 12px;
+    border-radius: 4px;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .contact-link:hover {
-    color: #00a8e8;
-    border: 1px solid #00a8e8;
-    box-shadow: 0 0 10px rgba(0, 168, 232, 0.5);
-    transform: translateX(10px);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
 }
 
 /* ===== FOOTER ===== */
+
 .footer-section {
+    margin-top: 60px;
+    padding: 32px 20px;
+    border-top: 1px solid var(--border-subtle);
     text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    border-top: 2px dashed #00a8e8;
 }
 
 .footer-text {
-    color: #00a8e8;
     font-size: 12px;
-    letter-spacing: 1px;
+    color: var(--text-muted);
 }
 
-.footer-text p {
-    margin: 5px 0;
-}
+/* ===== CV ===== */
 
-.blink {
-    animation: blink 1s infinite;
-    color: #FFBE1E;
-}
-
-@keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-}
-
-/* ===== CV PAGE STYLES ===== */
 .cv-heading {
-    color: #FFBE1E;
     font-size: 16px;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(0, 168, 232, 0.3);
-    padding-bottom: 8px;
+    font-weight: 600;
+    margin: 26px 0 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 6px;
 }
 
 .cv-entry {
-    margin: 15px 0;
-    padding: 12px;
-    background: rgba(0, 168, 232, 0.05);
-    border-left: 3px solid #00a8e8;
+    padding: 16px;
+    background: var(--bg-elevated);
+    border-left: 2px solid var(--border-strong);
+    margin-bottom: 16px;
 }
 
-.cv-title {
-    color: #00a8e8;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 5px 0;
-}
-
+.cv-title,
 .cv-title-student {
-    color: #00a8e8;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 5px 0;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .cv-subtitle {
-    color: #808080;
-    font-size: 12px;
-    margin: 3px 0;
+    font-size: 13px;
+    color: var(--text-muted);
 }
 
 .cv-description {
-    color: #a0a0a0;
-    font-size: 12px;
-    margin: 5px 0;
-    padding-left: 15px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding-left: 14px;
 }
+
+/* ===== SKILLS ===== */
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 8px;
 }
 
 .skill-tag {
-    display: inline-block;
-    background: rgba(0, 168, 232, 0.15);
-    border: 1px solid #00a8e8;
-    color: #00a8e8;
+    font-size: 13px;
     padding: 6px 12px;
-    font-size: 12px;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--text-secondary);
 }
 
-.skill-tag:hover {
-    background: rgba(0, 168, 232, 0.3);
-    box-shadow: 0 0 10px rgba(0, 168, 232, 0.4);
-    transform: scale(1.05);
+/* ===== CODE ===== */
+
+pre {
+    background: #050505;
+    padding: 18px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+/* Syntax – grayscale only */
+.keyword,
+.string,
+.comment,
+.number,
+.function {
+    color: var(--text-secondary);
 }
 
 /* ===== RESPONSIVE ===== */
+
 @media (max-width: 768px) {
-    .terminal-title {
-        font-size: 20px;
-    }
-
-    .nav-console {
-        gap: 15px;
-    }
-
-    .console-box {
-        margin: 0 -10px;
-    }
-
-    .main-content {
-        padding: 10px;
-    }
-
-    .header-bars {
-        display: none;
-    }
+    .terminal-title { font-size: 20px; }
+    .main-content { padding: 12px; }
 }
 
 @media (max-width: 480px) {
-    .nav-item {
-        font-size: 12px;
-        color: #FFBE1E;
-    }
-
-    .console-text {
-        font-size: 12px;
-        padding: 15px;
-    }
-
-    .terminal-title {
-        font-size: 16px;
-    }
+    .terminal-title { font-size: 16px; }
+    .console-text { font-size: 13px; }
 }
